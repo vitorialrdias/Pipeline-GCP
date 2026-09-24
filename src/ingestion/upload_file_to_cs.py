@@ -17,16 +17,13 @@ def upload_file_storage(local_path: str) -> str:
         
         client = get_storage_client()
         
-        if not client.get_bucket(BUCKET_RAW):
-            client.create_bucket(BUCKET_RAW)
-        
         bucket = client.bucket(BUCKET_RAW)
         storage = bucket.blob(destination_storage)
         
         storage.upload_from_filename(local_path)
         logger.info("Arquivo %s enviado para gs://%s/%s", local_path, BUCKET_RAW, destination_storage)
         
-        return f"gs://{BUCKET_RAW/{destination_storage}}"
+        return f"gs://{BUCKET_RAW}/{destination_storage}"
         
     except Exception as e:
         logger.error(e)

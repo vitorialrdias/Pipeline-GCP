@@ -1,8 +1,8 @@
 import os
 from google.cloud import bigquery
 
-PROJECT_ID = os.environ.get("vitorialrdias", "project-cb4de469-9a26-4595-bfd")
-LOCATION = os.environ.get("southamerica-east4", "US")
+PROJECT_ID = os.environ.get("GOOGLE_CLOUD_PROJECT","project-cb4de469-9a26-4595-bfd")
+LOCATION = os.environ.get("GOOGLE_CLOUD_LOCATION","southamerica-east1")
 
 DATASET_RAW = "raw_imoveis_sp"
 DATASET_TRUSTED = "trusted_imoveis_sp"
